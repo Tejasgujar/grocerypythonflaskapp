@@ -10,8 +10,7 @@ import datetime
 # Creating Flask App
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URI')
-
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_POOL_TIMEOUT'] = 300
 app.config['UPLOAD_FOLDER'] = "static/images/"
@@ -362,7 +361,7 @@ def logout():
         if session['mobile_no'] == '':
             raise customException("Need to login .!!!")
 
-        # Removing values from all session variables
+        # Removing values from all session variables7
         session['cart_items'] = {}
         session['cart_size'] = 0
         session['search'] = ''
